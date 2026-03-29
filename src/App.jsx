@@ -19,7 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import productsData from './products.json';
 
-const Navbar = ({ cartCount }) => (
+const Navbar = ({ cartCount, onCartClick }) => (
   <nav className="navbar bg-white px-4 py-4 max-w-7xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
     <div className="navbar-start">
       <a className="text-2xl font-black text-primary cursor-pointer tracking-tighter">DigiTools</a>
@@ -34,7 +34,7 @@ const Navbar = ({ cartCount }) => (
       </ul>
     </div>
     <div className="navbar-end gap-3 flex items-center">
-      <button className="btn btn-ghost btn-circle text-gray-600 indicator relative">
+      <button onClick={onCartClick} className="btn btn-ghost btn-circle text-gray-600 indicator relative">
         {cartCount > 0 && <span className="indicator-item badge badge-primary badge-sm text-[10px] text-white shadow-sm border-none right-1 top-1">{cartCount}</span>}
         <FaCartShopping className="text-lg" />
       </button>
@@ -99,12 +99,13 @@ const Stats = () => (
   </section>
 );
 
-const ToolCard = ({ product, onAddToCart }) => {
+const ToolCard = ({ product, onAddToCart, isInCart }) => {
   const [added, setAdded] = useState(false);
   const Icons = { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn };
   const Icon = Icons[product.icon] || FaBox;
 
   const handleBuy = () => {
+    if (isInCart) return;
     onAddToCart(product);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -143,19 +144,18 @@ const ToolCard = ({ product, onAddToCart }) => {
           </div>
         ))}
       </div>
-      <button onClick={handleBuy} className={`btn btn-block rounded-full h-14 group-hover:shadow-xl group-hover:shadow-primary/30 transition-all font-bold border-none text-white ${added ? 'btn-success' : 'btn-primary'}`}>
-        {added ? 'Added to cart' : 'Buy Now'}
+      <button onClick={handleBuy} disabled={isInCart} className={`btn btn-block rounded-full h-14 transition-all font-bold border-none text-white ${isInCart || added ? 'bg-green-500 hover:bg-green-600 disabled:bg-green-500 disabled:text-white disabled:opacity-75 cursor-default' : 'btn-primary group-hover:shadow-xl group-hover:shadow-primary/30'}`}>
+        {isInCart || added ? 'Added to cart' : 'Buy Now'}
       </button>
     </div>
   );
 };
 
-const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout }) => {
-  const [activeTab, setActiveTab] = useState('products');
+const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, setActiveTab }) => {
   const totalCost = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <section className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <section id="tools" className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-black text-gray-900 mb-6 tracking-tighter text-center w-full block">Premium Digital Tools</h2>
@@ -180,7 +180,7 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout }) => {
 
         {activeTab === 'products' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {productsData.map((t) => <ToolCard key={t.id} product={t} onAddToCart={onAddToCart} />)}
+            {productsData.map((t) => <ToolCard key={t.id} product={t} onAddToCart={onAddToCart} isInCart={cart.some(item => item.id === t.id)} />)}
           </div>
         ) : (
           <div className="bg-white p-6 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-sm max-w-4xl mx-auto">
@@ -426,8 +426,14 @@ const Footer = () => (
 
 export default function App() {
   const [cart, setCart] = useState([]);
+  const [activeTab, setActiveTab] = useState('products');
 
   const handleAddToCart = (product) => {
+    const isAlreadyInCart = cart.some(item => item.id === product.id);
+    if (isAlreadyInCart) {
+      toast.warning(`${product.name} is already in your cart!`);
+      return;
+    }
     setCart([...cart, product]);
     toast.success(`${product.name} added to cart!`);
   };
@@ -442,10 +448,15 @@ export default function App() {
     toast.info('Checkout successful! Cart cleared.');
   };
 
+  const handleCartClick = () => {
+    setActiveTab('cart');
+    document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary">
       <ToastContainer position="bottom-right" autoClose={3000} />
-      <Navbar cartCount={cart.length} />
+      <Navbar cartCount={cart.length} onCartClick={handleCartClick} />
       <main>
         <Hero />
         <Stats />
@@ -454,6 +465,8 @@ export default function App() {
           onAddToCart={handleAddToCart} 
           onRemoveFromCart={handleRemoveFromCart} 
           onCheckout={handleCheckout} 
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
         <Steps />
         <Pricing />

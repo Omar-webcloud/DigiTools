@@ -19,7 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import productsData from './products.json';
 
-const Navbar = () => (
+const Navbar = ({ cartCount }) => (
   <nav className="navbar bg-white px-4 py-4 max-w-7xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
     <div className="navbar-start">
       <a className="text-2xl font-black text-primary cursor-pointer tracking-tighter">DigiTools</a>
@@ -33,14 +33,15 @@ const Navbar = () => (
         <li><a className="hover:text-primary">FAQ</a></li>
       </ul>
     </div>
-    <div className="navbar-end gap-3">
-      <button className="btn btn-ghost btn-circle text-gray-600">
+    <div className="navbar-end gap-3 flex items-center">
+      <button className="btn btn-ghost btn-circle text-gray-600 indicator relative">
+        {cartCount > 0 && <span className="indicator-item badge badge-primary badge-sm text-[10px] text-white shadow-sm border-none right-1 top-1">{cartCount}</span>}
         <FaCartShopping className="text-lg" />
       </button>
       <a className="btn btn-ghost font-bold text-gray-700 flex items-center gap-2">
         <FaUser className="text-gray-400" /> Login
       </a>
-      <a className="btn btn-primary rounded-full px-8 text-white shadow-lg shadow-primary/20 font-bold border-none">Get Started</a>
+      <a className="btn btn-primary rounded-full px-8 text-white shadow-lg shadow-primary/20 font-bold border-none hidden sm:flex">Get Started</a>
     </div>
   </nav>
 );
@@ -98,67 +99,132 @@ const Stats = () => (
   </section>
 );
 
-const ToolCard = ({ icon: Icon, name, price, badge, features, iconColor }) => (
-  <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100/50 hover:shadow-2xl hover:border-primary/20 transition-all duration-500 flex flex-col items-center text-center group relative overflow-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
-    {badge && (
-      <span className={`absolute top-6 right-6 text-[10px] uppercase font-black px-3 py-1 rounded-full ring-1 ring-inset ${
-        badge === 'New' ? 'bg-orange-50 text-orange-600 ring-orange-100' : 
-        badge === 'Hot' ? 'bg-green-50 text-green-600 ring-green-100' :
-        badge === 'Popular' ? 'bg-blue-50 text-blue-600 ring-blue-100' :
-        badge === 'Best Seller' ? 'bg-yellow-50 text-yellow-600 ring-yellow-100' :
-        'bg-indigo-50 text-indigo-600 ring-indigo-100'
-      }`}>
-        {badge}
-      </span>
-    )}
-    <div className={`w-20 h-20 rounded-3xl bg-gray-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-primary/5 ring-1 ring-gray-100 group-hover:ring-primary/20`}>
-      <Icon className={`text-4xl ${iconColor}`} />
-    </div>
-    <h3 className="text-xl font-black text-gray-900 mb-2 tracking-tight">{name}</h3>
-    <div className="flex items-baseline gap-1 mb-8">
-      <span className="text-3xl font-black text-gray-900">${price}</span>
-      <span className="text-gray-400 font-bold">/mo</span>
-    </div>
-    <div className="space-y-4 mb-10 w-full text-left">
-      {features.map((f, i) => (
-        <div key={i} className="flex items-center gap-3 text-sm text-gray-500 font-bold whitespace-nowrap overflow-hidden text-ellipsis">
-          <div className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0 ring-1 ring-green-100">
-            <FaCheck className="w-2 h-2 text-green-600 shrink-0" />
-          </div>
-          {f}
-        </div>
-      ))}
-    </div>
-    <button className="btn btn-primary btn-block rounded-full h-14 group-hover:shadow-xl group-hover:shadow-primary/30 transition-all font-bold border-none text-white">Buy Now</button>
-  </div>
-);
+const ToolCard = ({ product, onAddToCart }) => {
+  const [added, setAdded] = useState(false);
+  const Icons = { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn };
+  const Icon = Icons[product.icon] || FaBox;
 
-const Tools = () => {
-  const tools = [
-    { name: 'AI Writing Pro', icon: FaPenNib, iconColor: 'text-orange-500', price: '39', badge: 'New', features: ['Unlimited generations', '50+ writing templates', 'Grammar checker'] },
-    { name: 'Design Templates Pack', icon: FaPalette, iconColor: 'text-pink-500', price: '69', badge: 'Free Trial', features: ['2000+ templates', 'Monthly updates', 'Commercial license'] },
-    { name: 'Premium Stock Assets', icon: FaCartShopping, iconColor: 'text-blue-500', price: '19', badge: 'Hot', features: ['1M+ assets', 'Cancel any time', 'High resolution'] },
-    { name: 'Automation Toolkit', icon: FaGear, iconColor: 'text-blue-600', price: '79', badge: 'Popular', features: ['50+ Automations', 'All tools', 'Custom workflows'] },
-    { name: 'Resume Builder Pro', icon: FaFileInvoice, iconColor: 'text-yellow-500', price: '15', badge: 'New', features: ['Top 500 templates', '50+ registrations', 'Export as PDF'] },
-    { name: 'Social Media Content Kit', icon: FaBullhorn, iconColor: 'text-indigo-500', price: '35', badge: 'Best Seller', features: ['1000+ videos', 'Schedule in store', 'Analytics dashboard'] },
-  ];
+  const handleBuy = () => {
+    onAddToCart(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
+  return (
+    <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100/50 hover:shadow-2xl hover:border-primary/20 transition-all duration-500 flex flex-col items-center text-center group relative overflow-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
+      {product.tag && (
+        <span className={`absolute top-6 right-6 text-[10px] uppercase font-black px-3 py-1 rounded-full ring-1 ring-inset ${
+          product.tagType === 'orange' ? 'bg-orange-50 text-orange-600 ring-orange-100' : 
+          product.tagType === 'pink' ? 'bg-pink-50 text-pink-600 ring-pink-100' :
+          product.tagType === 'blue' ? 'bg-blue-50 text-blue-600 ring-blue-100' :
+          product.tagType === 'yellow' ? 'bg-yellow-50 text-yellow-600 ring-yellow-100' :
+          product.tagType === 'green' ? 'bg-green-50 text-green-600 ring-green-100' :
+          'bg-indigo-50 text-indigo-600 ring-indigo-100'
+        }`}>
+          {product.tag}
+        </span>
+      )}
+      <div className={`w-20 h-20 rounded-3xl bg-gray-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-primary/5 ring-1 ring-gray-100 group-hover:ring-primary/20`}>
+        <Icon className={`text-4xl ${product.iconColor}`} />
+      </div>
+      <h3 className="text-xl font-black text-gray-900 mb-2 tracking-tight">{product.name}</h3>
+      <p className="text-sm text-gray-500 font-medium mb-6 line-clamp-2 h-10">{product.description}</p>
+      <div className="flex items-baseline gap-1 mb-8">
+        <span className="text-3xl font-black text-gray-900">${product.price}</span>
+        <span className="text-gray-400 font-bold text-sm">/{product.period}</span>
+      </div>
+      <div className="space-y-4 mb-10 w-full text-left">
+        {product.features.map((f, i) => (
+          <div key={i} className="flex items-center gap-3 text-sm text-gray-500 font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+            <div className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center shrink-0 ring-1 ring-green-100">
+              <FaCheck className="w-2 h-2 text-green-600 shrink-0" />
+            </div>
+            {f}
+          </div>
+        ))}
+      </div>
+      <button onClick={handleBuy} className={`btn btn-block rounded-full h-14 group-hover:shadow-xl group-hover:shadow-primary/30 transition-all font-bold border-none text-white ${added ? 'btn-success' : 'btn-primary'}`}>
+        {added ? 'Added to cart' : 'Buy Now'}
+      </button>
+    </div>
+  );
+};
+
+const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout }) => {
+  const [activeTab, setActiveTab] = useState('products');
+  const totalCost = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <section className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <h2 className="text-5xl font-black text-gray-900 mb-6 tracking-tighter text-center w-full block">Premium Digital Tools</h2>
           <p className="text-gray-500 max-w-2xl mx-auto font-semibold text-lg leading-relaxed text-center block mb-8">
-            Over the years we have collected the most valuable tools for designers, developers, and marketing professionals.
+            Choose from our curated collection of premium digital products designed to boost your productivity and creativity.
           </p>
-          <div className="flex justify-center gap-4 mt-6">
-            <button className="btn btn-primary rounded-full px-10 h-14 text-white shadow-xl shadow-primary/20 border-none font-bold text-lg">Products</button>
-            <button className="btn btn-ghost rounded-full px-10 h-14 text-gray-400 font-extrabold text-lg hover:text-primary transition-colors hover:bg-primary/5">Cart(0)</button>
+          <div className="inline-flex justify-center gap-2 mt-6 p-1.5 rounded-full bg-white border border-gray-100/80 shadow-sm">
+            <button 
+              onClick={() => setActiveTab('products')} 
+              className={`rounded-full px-8 h-12 font-bold text-sm transition-all ${activeTab === 'products' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+            >
+              Products
+            </button>
+            <button 
+              onClick={() => setActiveTab('cart')} 
+              className={`rounded-full px-8 h-12 font-bold text-sm transition-all ${activeTab === 'cart' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+            >
+              Cart ({cart.length})
+            </button>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {tools.map((t, i) => <ToolCard key={i} {...t} />)}
-        </div>
+
+        {activeTab === 'products' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {productsData.map((t) => <ToolCard key={t.id} product={t} onAddToCart={onAddToCart} />)}
+          </div>
+        ) : (
+          <div className="bg-white p-6 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-sm max-w-4xl mx-auto">
+            <h3 className="text-2xl font-black text-gray-900 mb-8">Your Cart</h3>
+            {cart.length === 0 ? (
+              <div className="text-center text-gray-400 py-16 font-bold space-y-4">
+                <FaCartShopping className="text-6xl mx-auto text-gray-200" />
+                <p>Your cart is empty.</p>
+              </div>
+            ) : (
+              <div>
+                <div className="space-y-4 mb-8">
+                  {cart.map((item, idx) => {
+                    const Icons = { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn };
+                    const ItemIcon = Icons[item.icon] || FaBox;
+                    return (
+                      <div key={idx} className="bg-gray-50/80 p-5 rounded-2xl flex items-center justify-between shadow-sm border border-gray-100/50 hover:border-gray-200 transition-colors">
+                        <div className="flex items-center gap-5">
+                          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100">
+                            <ItemIcon className={`text-xl ${item.iconColor}`} />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-gray-900 leading-tight mb-1">{item.name}</h4>
+                            <p className="text-sm text-gray-500 font-bold">${item.price}</p>
+                          </div>
+                        </div>
+                        <button onClick={() => onRemoveFromCart(item.id)} className="text-sm text-pink-500 font-bold tracking-wide hover:text-pink-600 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors">
+                          Remove
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex items-center justify-between mb-8 pt-6 border-t border-gray-100">
+                  <span className="text-gray-500 text-sm font-bold">Total:</span>
+                  <span className="text-2xl font-black text-gray-900">${totalCost}</span>
+                </div>
+                <button onClick={onCheckout} className="btn btn-primary btn-block rounded-full h-14 text-white text-lg font-bold shadow-lg shadow-primary/20 border-none transition-transform hover:scale-[1.01] active:scale-[0.99]">
+                  Proceed To Checkout
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -359,13 +425,36 @@ const Footer = () => (
 );
 
 export default function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (product) => {
+    setCart([...cart, product]);
+    toast.success(`${product.name} added to cart!`);
+  };
+
+  const handleRemoveFromCart = (productId) => {
+    setCart(cart.filter(item => item.id !== productId));
+    toast.error('Item removed from cart!');
+  };
+
+  const handleCheckout = () => {
+    setCart([]);
+    toast.info('Checkout successful! Cart cleared.');
+  };
+
   return (
     <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary">
-      <Navbar />
+      <ToastContainer position="bottom-right" autoClose={3000} />
+      <Navbar cartCount={cart.length} />
       <main>
         <Hero />
         <Stats />
-        <Tools />
+        <Tools 
+          cart={cart} 
+          onAddToCart={handleAddToCart} 
+          onRemoveFromCart={handleRemoveFromCart} 
+          onCheckout={handleCheckout} 
+        />
         <Steps />
         <Pricing />
         <CTA />

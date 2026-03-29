@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fa6'
 
 const Navbar = () => (
-  <nav className="navbar bg-base-100 px-4 py-4 max-w-7xl mx-auto border-b border-base-200" style={{ fontFamily: 'Inter, sans-serif' }}>
+  <nav className="navbar bg-white px-4 py-4 max-w-7xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
     <div className="navbar-start">
       <a className="text-2xl font-black text-primary cursor-pointer tracking-tighter">DigiTools</a>
     </div>
@@ -30,7 +30,12 @@ const Navbar = () => (
       </ul>
     </div>
     <div className="navbar-end gap-3">
-      <a className="btn btn-ghost font-bold text-gray-700">Login</a>
+      <button className="btn btn-ghost btn-circle text-gray-600">
+        <FaCartShopping className="text-lg" />
+      </button>
+      <a className="btn btn-ghost font-bold text-gray-700 flex items-center gap-2">
+        <FaUser className="text-gray-400" /> Login
+      </a>
       <a className="btn btn-primary rounded-full px-8 text-white shadow-lg shadow-primary/20 font-bold border-none">Get Started</a>
     </div>
   </nav>
@@ -40,15 +45,15 @@ const Hero = () => (
   <section className="relative pt-24 pb-24 overflow-hidden" style={{ fontFamily: 'Inter, sans-serif' }}>
     <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
       <div className="lg:w-1/2 text-left">
-        <div className="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold mb-8 ring-1 ring-blue-100 ring-inset uppercase tracking-wider">
-          All New 2025 Features Are Out Now
+        <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold mb-8 ring-1 ring-primary/20 ring-inset">
+          All New AI-Powered Productivity Tools
         </div>
         <h1 className="text-6xl font-black leading-[1.1] mb-8 tracking-tighter text-gray-900">
           Supercharge Your <br />
           <span className="text-primary">Digital Workflow</span>
         </h1>
         <p className="text-gray-500 text-lg mb-10 leading-relaxed max-w-lg font-medium">
-          Access premium AI tools, design assets, and statistics and productivity software all in one place. Start creating today for free.
+          Access premium AI tools, design assets, templates and productivity software all in one place. Start creating today for free.
         </p>
         <div className="flex items-center gap-6">
           <button className="btn btn-primary rounded-full px-10 h-14 text-white shadow-2xl shadow-primary/30 border-none font-bold text-lg">Browse Products</button>
@@ -62,7 +67,7 @@ const Hero = () => (
       </div>
       <div className="lg:w-1/2 relative">
         <div className="absolute -inset-10 bg-primary/5 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-        <img src="/banner.png" alt="Hero Illustration" className="w-full rounded-2xl shadow-2xl skew-y-1 hover:skew-y-0 transition-transform duration-1000" />
+        <img src="/banner.png" alt="Hero Illustration" className="w-full rounded-2xl shadow-xl transition-transform duration-1000" />
       </div>
     </div>
   </section>
@@ -144,7 +149,7 @@ const Tools = () => {
           </p>
           <div className="flex justify-center gap-4 mt-6">
             <button className="btn btn-primary rounded-full px-10 h-14 text-white shadow-xl shadow-primary/20 border-none font-bold text-lg">Products</button>
-            <button className="btn btn-ghost rounded-full px-10 h-14 text-gray-400 font-extrabold text-lg hover:text-primary transition-colors">Top Kit</button>
+            <button className="btn btn-ghost rounded-full px-10 h-14 text-gray-400 font-extrabold text-lg hover:text-primary transition-colors hover:bg-primary/5">Cart(0)</button>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

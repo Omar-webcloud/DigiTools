@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn, FaBox, FaCheck } from 'react-icons/fa6';
+import { FaPenNib, FaPalette, FaCartShopping, FaCamera, FaGear, FaFileInvoice, FaBullhorn, FaBox, FaCheck } from 'react-icons/fa6';
 
 const ToolCard = ({ product, onAddToCart, isInCart }) => {
   const [added, setAdded] = useState(false);
-  const Icons = { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn };
+  const Icons = { FaPenNib, FaPalette, FaCartShopping, FaCamera, FaGear, FaFileInvoice, FaBullhorn };
   const Icon = Icons[product.icon] || FaBox;
 
   const handleBuy = () => {
@@ -28,7 +28,11 @@ const ToolCard = ({ product, onAddToCart, isInCart }) => {
         </span>
       )}
       <div className={`w-20 h-20 rounded-3xl bg-gray-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 group-hover:bg-primary/5 ring-1 ring-gray-100 group-hover:ring-primary/20`}>
-        <Icon className={`text-4xl ${product.iconColor}`} />
+        {product.image ? (
+          <img src={product.image} alt={product.name} className="w-10 h-10 object-contain drop-shadow-sm" />
+        ) : (
+          <Icon className={`text-4xl ${product.iconColor}`} />
+        )}
       </div>
       <h3 className="text-lg md:text-xl font-black text-gray-900 mb-2 tracking-tight">{product.name}</h3>
       <p className="text-xs md:text-sm text-gray-500 font-medium mb-6 line-clamp-2 h-10">{product.description}</p>

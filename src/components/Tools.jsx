@@ -1,6 +1,6 @@
 import ToolCard from './ToolCard';
 import productsData from '../products.json';
-import { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn, FaBox } from 'react-icons/fa6';
+import { FaPenNib, FaPalette, FaCartShopping, FaCamera, FaGear, FaFileInvoice, FaBullhorn, FaBox } from 'react-icons/fa6';
 
 const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, setActiveTab }) => {
   const totalCost = cart.reduce((sum, item) => sum + item.price, 0);
@@ -45,13 +45,17 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
               <div>
                 <div className="space-y-4 mb-8">
                   {cart.map((item, idx) => {
-                    const Icons = { FaPenNib, FaPalette, FaCartShopping, FaGear, FaFileInvoice, FaBullhorn };
+                    const Icons = { FaPenNib, FaPalette, FaCartShopping, FaCamera, FaGear, FaFileInvoice, FaBullhorn };
                     const ItemIcon = Icons[item.icon] || FaBox;
                     return (
                       <div key={idx} className="bg-gray-50/80 p-5 rounded-2xl flex items-center justify-between shadow-sm border border-gray-100/50 hover:border-gray-200 transition-colors">
                         <div className="flex items-center gap-5">
                           <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100">
-                            <ItemIcon className={`text-xl ${item.iconColor}`} />
+                            {item.image ? (
+                              <img src={item.image} alt={item.name} className="w-6 h-6 object-contain drop-shadow-sm" />
+                            ) : (
+                              <ItemIcon className={`text-xl ${item.iconColor}`} />
+                            )}
                           </div>
                           <div>
                             <h4 className="font-bold text-gray-900 leading-tight mb-1">{item.name}</h4>

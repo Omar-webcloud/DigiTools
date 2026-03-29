@@ -9,7 +9,8 @@
     "tagType": "orange",
     "features": ["Unlimited generations", "50+ writing templates", "Grammar checker"],
     "icon": "FaPenNib",
-    "iconColor": "text-orange-500"
+    "iconColor": "text-orange-500",
+    "image": "/products/writing_2327400 1.png"
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "tagType": "pink",
     "features": ["2000+ templates", "Monthly updates", "Commercial license"],
     "icon": "FaPalette",
-    "iconColor": "text-pink-500"
+    "iconColor": "text-pink-500",
+    "image": "/products/design-tool.png"
   },
   {
     "id": 3,
@@ -32,7 +34,7 @@
     "tag": "Hot",
     "tagType": "green",
     "features": ["1M+ assets", "Cancel any time", "High resolution"],
-    "icon": "FaCartShopping",
+    "icon": "FaCamera",
     "iconColor": "text-green-500"
   },
   {
@@ -45,7 +47,8 @@
     "tagType": "blue",
     "features": ["50+ Automations", "All tools included", "Custom workflows"],
     "icon": "FaGear",
-    "iconColor": "text-blue-500"
+    "iconColor": "text-blue-500",
+    "image": "/products/operation.png"
   },
   {
     "id": 5,
@@ -57,7 +60,8 @@
     "tagType": "yellow",
     "features": ["Top 500 templates", "ATS optimization", "Export to PDF"],
     "icon": "FaFileInvoice",
-    "iconColor": "text-yellow-500"
+    "iconColor": "text-yellow-500",
+    "image": "/products/portfolio.png"
   },
   {
     "id": 6,
@@ -69,6 +73,7 @@
     "tagType": "indigo",
     "features": ["1000+ videos", "Schedule in store", "Analytics dashboard"],
     "icon": "FaBullhorn",
-    "iconColor": "text-indigo-500"
+    "iconColor": "text-indigo-500",
+    "image": "/products/social-media.png"
   }
 ]

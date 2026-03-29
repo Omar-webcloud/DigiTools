@@ -9,20 +9,20 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
     <section id="tools" className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-black text-gray-900 mb-6 tracking-tighter text-center w-full block">Premium Digital Tools</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto font-semibold text-lg leading-relaxed text-center block mb-8">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tighter text-center w-full block">Premium Digital Tools</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto font-semibold text-base md:text-lg leading-relaxed text-center block mb-8">
             Choose from our curated collection of premium digital products designed to boost your productivity and creativity.
           </p>
-          <div className="inline-flex justify-center gap-2 mt-6 p-1.5 rounded-full bg-white border border-gray-100/80 shadow-sm">
+          <div className="inline-flex justify-center gap-2 mt-6 p-1.5 rounded-full bg-white border border-gray-100/80 shadow-sm flex-wrap w-full md:w-auto">
             <button 
               onClick={() => setActiveTab('products')} 
-              className={`rounded-full px-8 h-12 font-bold text-sm transition-all ${activeTab === 'products' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+              className={`rounded-full px-6 h-10 md:px-8 md:h-12 font-bold text-xs md:text-sm grow md:grow-0 transition-all ${activeTab === 'products' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
             >
               Products
             </button>
             <button 
               onClick={() => setActiveTab('cart')} 
-              className={`rounded-full px-8 h-12 font-bold text-sm transition-all ${activeTab === 'cart' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+              className={`rounded-full px-6 h-10 md:px-8 md:h-12 font-bold text-xs md:text-sm grow md:grow-0 transition-all ${activeTab === 'cart' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
             >
               Cart ({cart.length})
             </button>

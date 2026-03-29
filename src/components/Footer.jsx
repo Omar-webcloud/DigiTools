@@ -49,9 +49,9 @@ const Footer = () => (
           </ul>
         </div>
       </div>
-      <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-white/20 text-[10px] font-black uppercase tracking-[0.4em]">
-        <p>&copy; 2025 DigiTools Inc. Everything Reserved.</p>
-        <div className="flex gap-12">
+      <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-white/20 text-[9px] sm:text-[10px] text-center font-black uppercase tracking-[0.3em] lg:tracking-[0.4em]">
+        <p className="mb-2 md:mb-0">&copy; 2025 DigiTools Inc. Everything Reserved.</p>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-12">
           <a className="hover:text-white transition-colors cursor-pointer">Privacy Path</a>
           <a className="hover:text-white transition-colors cursor-pointer">Terms of Services</a>
           <a className="hover:text-white transition-colors cursor-pointer">Connect</a>

@@ -4,17 +4,17 @@ const Pricing = () => (
   <section className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
     <div className="max-w-7xl mx-auto px-4">
       <div className="text-center mb-20">
-        <h2 className="text-5xl font-black text-gray-900 mb-6 tracking-tighter">Simple, Transparent Pricing</h2>
-        <p className="text-gray-500 max-w-xl mx-auto font-semibold text-lg leading-relaxed">Choose the plan that fits your needs. Map local current plan for more details.</p>
+        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tighter">Simple, Transparent Pricing</h2>
+        <p className="text-gray-500 max-w-xl mx-auto font-semibold text-base md:text-lg leading-relaxed">Choose the plan that fits your needs. Map local current plan for more details.</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-8 items-stretch max-w-6xl mx-auto">
-        <div className="bg-white p-12 rounded-[3.5rem] border border-gray-100/50 shadow-sm grow flex flex-col">
+        <div className="bg-white p-8 md:p-12 rounded-3xl md:rounded-[3.5rem] border border-gray-100/50 shadow-sm grow flex flex-col">
           <div className="mb-10">
             <h3 className="text-2xl font-black text-gray-900 mb-2">Starter</h3>
             <p className="text-gray-400 font-bold text-sm">Perfect for simple product start</p>
           </div>
           <div className="mb-10">
-            <span className="text-6xl font-black text-gray-900">$0</span>
+            <span className="text-5xl md:text-6xl font-black text-gray-900">$0</span>
             <span className="text-gray-400 font-bold ml-2 text-xl">/Month</span>
           </div>
           <div className="space-y-6 mb-12 grow">
@@ -27,20 +27,20 @@ const Pricing = () => (
               </div>
             ))}
           </div>
-          <button className="btn btn-primary btn-block rounded-full h-16 text-white shadow-xl shadow-primary/20 border-none font-black text-lg transition-all hover:scale-[1.02] active:scale-[0.98]">Get Started Now</button>
+          <button className="btn btn-primary btn-block rounded-full h-12 md:h-16 w-full text-white shadow-xl shadow-primary/20 border-none font-black text-base md:text-lg transition-all hover:scale-[1.02] active:scale-[0.98]">Get Started Now</button>
         </div>
 
         <div className="bg-primary p-1.5 rounded-[3.8rem] relative grow flex flex-col lg:scale-110 z-10 shadow-[0_40px_80px_-20px_rgba(139,92,246,0.5)]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-gray-900 px-6 py-2.5 rounded-full text-[11px] font-black tracking-[0.25em] shadow-xl uppercase ring-12 ring-white/15">
              Most Popular
           </div>
-          <div className="bg-primary p-12 rounded-[3.5rem] h-full flex flex-col text-white">
+          <div className="bg-primary p-8 md:p-12 rounded-[3.5rem] h-full flex flex-col text-white">
             <div className="mb-10">
               <h3 className="text-2xl font-black mb-2 tracking-tight">Pro</h3>
               <p className="text-white/80 font-bold text-sm opacity-90 leading-tight">For independent creators</p>
             </div>
             <div className="mb-10">
-              <span className="text-6xl font-black">$29</span>
+              <span className="text-5xl md:text-6xl font-black">$29</span>
               <span className="text-white/80 font-bold ml-2 text-xl opacity-90">/Month</span>
             </div>
             <div className="space-y-6 mb-12 grow">
@@ -53,17 +53,17 @@ const Pricing = () => (
                 </div>
               ))}
             </div>
-            <button className="btn bg-white text-primary border-none hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98] rounded-full h-16 btn-block shadow-2xl font-black text-lg px-8 transition-all">Start Free Trial</button>
+            <button className="btn bg-white text-primary border-none hover:bg-gray-50 hover:scale-[1.02] active:scale-[0.98] rounded-full h-12 md:h-16 btn-block shadow-2xl font-black text-base md:text-lg px-8 transition-all">Start Free Trial</button>
           </div>
         </div>
 
-        <div className="bg-white p-12 rounded-[3.5rem] border border-gray-100/50 shadow-sm grow flex flex-col">
+        <div className="bg-white p-8 md:p-12 rounded-3xl md:rounded-[3.5rem] border border-gray-100/50 shadow-sm grow flex flex-col">
           <div className="mb-10">
              <h3 className="text-2xl font-black text-gray-900 mb-2">Enterprise</h3>
              <p className="text-gray-400 font-bold text-sm">For team and professionals</p>
           </div>
           <div className="mb-10">
-             <span className="text-6xl font-black text-gray-900">$99</span>
+             <span className="text-5xl md:text-6xl font-black text-gray-900">$99</span>
              <span className="text-gray-400 font-bold ml-2 text-xl">/Month</span>
           </div>
           <div className="space-y-6 mb-12 grow">
@@ -76,7 +76,7 @@ const Pricing = () => (
               </div>
             ))}
           </div>
-          <button className="btn btn-primary btn-block rounded-full h-16 text-white shadow-xl shadow-primary/20 border-none font-black text-lg transition-all hover:scale-[1.02] active:scale-[0.98]">Contact Sales</button>
+          <button className="btn btn-primary btn-block rounded-full h-12 md:h-16 text-white shadow-xl shadow-primary/20 border-none font-black text-base md:text-lg transition-all hover:scale-[1.02] active:scale-[0.98]">Contact Sales</button>
         </div>
       </div>
     </div>

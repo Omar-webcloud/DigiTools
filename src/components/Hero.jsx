@@ -7,16 +7,16 @@ const Hero = () => (
         <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold mb-8 ring-1 ring-primary/20 ring-inset">
           All New AI-Powered Productivity Tools
         </div>
-        <h1 className="text-6xl font-black leading-[1.1] mb-8 tracking-tighter text-gray-900">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-8 tracking-tighter text-gray-900">
           Supercharge Your <br />
           <span className="text-primary">Digital Workflow</span>
         </h1>
-        <p className="text-gray-500 text-lg mb-10 leading-relaxed max-w-lg font-medium">
+        <p className="text-gray-500 text-base md:text-lg mb-10 leading-relaxed max-w-lg font-medium">
           Access premium AI tools, design assets, templates and productivity software all in one place. Start creating today for free.
         </p>
-        <div className="flex items-center gap-6">
-          <button className="btn btn-primary rounded-full px-10 h-14 text-white shadow-2xl shadow-primary/30 border-none font-bold text-lg">Browse Products</button>
-          <button className="flex items-center gap-3 font-bold text-gray-900 hover:text-primary transition-colors group">
+        <div className="flex flex-col sm:flex-row items-center sm:items-stretch gap-4 md:gap-6">
+          <button className="btn btn-primary rounded-full px-8 md:px-10 h-12 md:h-14 w-full sm:w-auto text-white shadow-2xl shadow-primary/30 border-none font-bold text-base md:text-lg">Browse Products</button>
+          <button className="flex items-center gap-3 w-full sm:w-auto justify-center font-bold text-gray-900 hover:text-primary transition-colors group px-4 py-2">
             <span className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-md ring-8 ring-gray-50 group-hover:ring-primary/10 transition-all">
               <FaPlay className="text-primary text-sm translate-x-0.5" />
             </span>

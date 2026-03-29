@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "AI Writing Pro",
+    "description": "Generate high-quality blog posts, emails, and marketing copy in seconds with advanced AI.",
+    "price": 29,
+    "period": "one-time",
+    "tag": "New",
+    "tagType": "orange",
+    "features": ["Unlimited generations", "50+ writing templates", "Grammar checker"],
+    "icon": "FaPenNib",
+    "iconColor": "text-orange-500"
+  },
+  {
+    "id": 2,
+    "name": "Design Templates Pack",
+    "description": "2000+ premium responsive design templates for web apps, landing pages, and more.",
+    "price": 49,
+    "period": "mo",
+    "tag": "Free Trial",
+    "tagType": "pink",
+    "features": ["2000+ templates", "Monthly updates", "Commercial license"],
+    "icon": "FaPalette",
+    "iconColor": "text-pink-500"
+  },
+  {
+    "id": 3,
+    "name": "Premium Stock Assets",
+    "description": "1 million+ royalty-free photos, videos, and graphics for your creative projects.",
+    "price": 19,
+    "period": "mo",
+    "tag": "Hot",
+    "tagType": "green",
+    "features": ["1M+ assets", "Cancel any time", "High resolution"],
+    "icon": "FaCartShopping",
+    "iconColor": "text-green-500"
+  },
+  {
+    "id": 4,
+    "name": "Automation Toolkit",
+    "description": "Automate repetitive tasks across 100+ platforms with customizable workflows.",
+    "price": 79,
+    "period": "yearly",
+    "tag": "Popular",
+    "tagType": "blue",
+    "features": ["50+ Automations", "All tools included", "Custom workflows"],
+    "icon": "FaGear",
+    "iconColor": "text-blue-500"
+  },
+  {
+    "id": 5,
+    "name": "Resume Builder Pro",
+    "description": "Create professional resumes formatted to pass ATS algorithms with ease.",
+    "price": 15,
+    "period": "one-time",
+    "tag": "New",
+    "tagType": "yellow",
+    "features": ["Top 500 templates", "ATS optimization", "Export to PDF"],
+    "icon": "FaFileInvoice",
+    "iconColor": "text-yellow-500"
+  },
+  {
+    "id": 6,
+    "name": "Social Media Content Kit",
+    "description": "A comprehensive kit for creating engaging social content across multiple platforms.",
+    "price": 35,
+    "period": "one-time",
+    "tag": "Best Seller",
+    "tagType": "indigo",
+    "features": ["1000+ videos", "Schedule in store", "Analytics dashboard"],
+    "icon": "FaBullhorn",
+    "iconColor": "text-indigo-500"
+  }
+]

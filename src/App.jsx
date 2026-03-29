@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { 
   FaPlay, 
   FaPenNib, 
@@ -13,7 +14,10 @@ import {
   FaFacebookF,
   FaInstagram,
   FaXTwitter
-} from 'react-icons/fa6'
+} from 'react-icons/fa6';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import productsData from './products.json';
 
 const Navbar = () => (
   <nav className="navbar bg-white px-4 py-4 max-w-7xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>

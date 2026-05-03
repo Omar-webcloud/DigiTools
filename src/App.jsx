@@ -41,8 +41,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white selection:bg-primary/20 selection:text-primary">
-      <ToastContainer position="bottom-right" autoClose={3000} />
+    <div className="min-h-screen bg-mesh selection:bg-primary/30 selection:text-white">
+      <ToastContainer position="bottom-right" autoClose={3000} theme="dark" />
       <Navbar cartCount={cart.length} onCartClick={handleCartClick} />
       <main>
         <Hero />

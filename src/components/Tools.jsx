@@ -6,23 +6,23 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
   const totalCost = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <section id="tools" className="py-32 bg-gray-50/50" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <section id="tools" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tighter text-center w-full block">Premium Digital Tools</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto font-semibold text-base md:text-lg leading-relaxed text-center block mb-8">
-            Choose from our curated collection of premium digital products designed to boost your productivity and creativity.
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Premium Digital Tools</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto font-medium text-lg leading-relaxed mb-12">
+            Elevate your workflow with our elite selection of AI-powered assets and software.
           </p>
-          <div className="inline-flex justify-center gap-2 mt-6 p-1.5 rounded-full bg-white border border-gray-100/80 shadow-sm flex-wrap w-full md:w-auto">
+          <div className="inline-flex justify-center gap-1 p-1 rounded-2xl glass border-white/5 shadow-xl">
             <button 
               onClick={() => setActiveTab('products')} 
-              className={`rounded-full px-6 h-10 md:px-8 md:h-12 font-bold text-xs md:text-sm grow md:grow-0 transition-all ${activeTab === 'products' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+              className={`rounded-xl px-8 h-12 font-bold text-sm transition-all duration-300 ${activeTab === 'products' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
               Products
             </button>
             <button 
               onClick={() => setActiveTab('cart')} 
-              className={`rounded-full px-6 h-10 md:px-8 md:h-12 font-bold text-xs md:text-sm grow md:grow-0 transition-all ${activeTab === 'cart' ? 'bg-primary text-white shadow-md' : 'bg-transparent text-gray-500 hover:text-gray-900'}`}
+              className={`rounded-xl px-8 h-12 font-bold text-sm transition-all duration-300 ${activeTab === 'cart' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
               Cart ({cart.length})
             </button>
@@ -34,47 +34,51 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
             {productsData.map((t) => <ToolCard key={t.id} product={t} onAddToCart={onAddToCart} isInCart={cart.some(item => item.id === t.id)} />)}
           </div>
         ) : (
-          <div className="bg-white p-6 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-sm max-w-4xl mx-auto">
-            <h3 className="text-2xl font-black text-gray-900 mb-8">Your Cart</h3>
+          <div className="glass p-8 md:p-12 rounded-[3rem] border-white/10 shadow-2xl max-w-4xl mx-auto relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -z-10" />
+            <h3 className="text-3xl font-black text-white mb-10 tracking-tight">Your Collection</h3>
             {cart.length === 0 ? (
-              <div className="text-center text-gray-400 py-16 font-bold space-y-4">
-                <FaCartShopping className="text-6xl mx-auto text-gray-200" />
-                <p>Your cart is empty.</p>
+              <div className="text-center py-20 space-y-6">
+                <div className="w-24 h-24 bg-white/5 rounded-[2rem] flex items-center justify-center mx-auto ring-1 ring-white/10">
+                  <FaCartShopping className="text-4xl text-gray-600" />
+                </div>
+                <p className="text-gray-400 text-lg font-medium">Your creative vault is currently empty.</p>
+                <button onClick={() => setActiveTab('products')} className="btn btn-primary btn-outline border-primary/20 rounded-xl px-8">Browse Tools</button>
               </div>
             ) : (
               <div>
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-10">
                   {cart.map((item, idx) => {
                     const Icons = { FaPenNib, FaPalette, FaCartShopping, FaCamera, FaGear, FaFileInvoice, FaBullhorn };
                     const ItemIcon = Icons[item.icon] || FaBox;
                     return (
-                      <div key={idx} className="bg-gray-50/80 p-5 rounded-2xl flex items-center justify-between shadow-sm border border-gray-100/50 hover:border-gray-200 transition-colors">
-                        <div className="flex items-center gap-5">
-                          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-gray-100">
+                      <div key={idx} className="glass-card p-6 rounded-2xl flex items-center justify-between group">
+                        <div className="flex items-center gap-6">
+                          <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center ring-1 ring-white/10 group-hover:ring-primary/30 transition-all">
                             {item.image ? (
-                              <img src={item.image} alt={item.name} className="w-6 h-6 object-contain drop-shadow-sm" />
+                              <img src={item.image} alt={item.name} className="w-8 h-8 object-contain" />
                             ) : (
-                              <ItemIcon className={`text-xl ${item.iconColor}`} />
+                              <ItemIcon className={`text-2xl ${item.iconColor}`} />
                             )}
                           </div>
                           <div>
-                            <h4 className="font-bold text-gray-900 leading-tight mb-1">{item.name}</h4>
-                            <p className="text-sm text-gray-500 font-bold">${item.price}</p>
+                            <h4 className="font-bold text-white text-lg leading-tight mb-1">{item.name}</h4>
+                            <p className="text-primary font-black text-sm">${item.price}</p>
                           </div>
                         </div>
-                        <button onClick={() => onRemoveFromCart(item.id)} className="text-sm text-pink-500 font-bold tracking-wide hover:text-pink-600 hover:bg-pink-50 px-4 py-2 rounded-lg transition-colors">
+                        <button onClick={() => onRemoveFromCart(item.id)} className="text-sm text-gray-500 font-bold hover:text-red-400 transition-colors px-4 py-2 hover:bg-red-400/10 rounded-xl">
                           Remove
                         </button>
                       </div>
                     );
                   })}
                 </div>
-                <div className="flex items-center justify-between mb-8 pt-6 border-t border-gray-100">
-                  <span className="text-gray-500 text-sm font-bold">Total:</span>
-                  <span className="text-2xl font-black text-gray-900">${totalCost}</span>
+                <div className="flex items-center justify-between mb-10 pt-8 border-t border-white/5">
+                  <span className="text-gray-400 font-bold">Total Investment:</span>
+                  <span className="text-4xl font-black text-white tracking-tight">${totalCost}</span>
                 </div>
-                <button onClick={onCheckout} className="btn btn-primary btn-block rounded-full h-14 text-white text-lg font-bold shadow-lg shadow-primary/20 border-none transition-transform hover:scale-[1.01] active:scale-[0.99]">
-                  Proceed To Checkout
+                <button onClick={onCheckout} className="btn bg-primary hover:bg-primary-focus border-none btn-block rounded-2xl h-16 text-white text-xl font-bold shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  Complete Purchase
                 </button>
               </div>
             )}

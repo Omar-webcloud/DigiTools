@@ -51,7 +51,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-amber {
-  @apply relative overflow-hidden transition-all duration-500 rounded-lg px-8 py-4 font-semibold tracking-wide uppercase text-xs;
+  @apply relative overflow-hidden transition-all duration-500 rounded-lg px-6 py-3 md:px-10 md:py-5 font-semibold tracking-wide uppercase text-[10px] md:text-xs;
   background: #BF7D3A;
   color: #1A1614;
 }

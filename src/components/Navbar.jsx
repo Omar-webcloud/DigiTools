@@ -28,7 +28,7 @@ const Navbar = ({ cartCount, onCartClick }) => (
         <a className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#F4E1D2]/60 hover:text-[#F4E1D2] cursor-pointer transition-colors">
           Identity
         </a>
-        <a className="btn-amber h-12 px-10 flex items-center justify-center text-[10px]">
+        <a className="btn-amber px-6 py-2 md:px-10 md:py-3 flex items-center justify-center text-[9px] md:text-[10px]">
           Initialize
         </a>
       </div>

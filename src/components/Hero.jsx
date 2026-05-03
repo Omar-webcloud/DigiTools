@@ -18,13 +18,13 @@ const Hero = () => (
         <p className="text-[#F4E1D2]/60 text-xl md:text-2xl mb-14 leading-relaxed max-w-xl font-light tracking-wide">
           An elite ecosystem of AI-powered tools curated for the sophisticated creator. Precision meet productivity.
         </p>
-        <div className="flex flex-col sm:flex-row items-center gap-8">
-          <button className="btn-amber min-w-[240px] h-20 text-sm tracking-[0.2em] shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center gap-6">
+          <button className="btn-amber w-full sm:w-auto shadow-2xl">
             Explore Collection
           </button>
-          <button className="flex items-center gap-4 w-full sm:w-auto justify-center font-medium text-[#F4E1D2]/80 hover:text-[#F7CA79] transition-all group px-8 py-2 glass rounded-xl h-20 border-white/10">
-            <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#BF7D3A]/20 transition-all border border-white/5">
-              <FaPlay className="text-[#BF7D3A] text-xs translate-x-0.5" />
+          <button className="flex items-center gap-4 w-full sm:w-auto justify-center font-medium text-[#F4E1D2]/80 hover:text-[#F7CA79] transition-all group px-6 py-3 md:px-8 md:py-4 glass rounded-xl border-white/10 h-14 md:h-20">
+            <span className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#BF7D3A]/20 transition-all border border-white/5">
+              <FaPlay className="text-[#BF7D3A] text-[10px] translate-x-0.5" />
             </span>
             View System
           </button>

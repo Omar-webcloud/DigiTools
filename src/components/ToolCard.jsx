@@ -14,49 +14,42 @@ const ToolCard = ({ product, onAddToCart, isInCart }) => {
   };
 
   return (
-    <div className="glass-card p-8 rounded-[2.5rem] flex flex-col items-center text-center group relative overflow-hidden">
+    <div className="glass-card p-12 rounded-[2.5rem] flex flex-col items-center text-center group relative overflow-hidden border-white/5 shadow-2xl">
       {product.tag && (
-        <span className={`absolute top-6 right-6 text-[10px] uppercase font-black px-3 py-1 rounded-full ring-1 ring-inset ${
-          product.tagType === 'orange' ? 'bg-orange-500/10 text-orange-400 ring-orange-500/20' : 
-          product.tagType === 'pink' ? 'bg-pink-500/10 text-pink-400 ring-pink-500/20' :
-          product.tagType === 'blue' ? 'bg-blue-500/10 text-blue-400 ring-blue-500/20' :
-          product.tagType === 'yellow' ? 'bg-yellow-500/10 text-yellow-400 ring-yellow-500/20' :
-          product.tagType === 'green' ? 'bg-green-500/10 text-green-400 ring-green-500/20' :
-          'bg-primary/10 text-primary ring-primary/20'
-        }`}>
+        <span className="absolute top-10 right-10 text-[9px] uppercase font-semibold px-4 py-1.5 rounded-full bg-[#BF7D3A]/10 text-[#F7CA79] border border-[#BF7D3A]/20 tracking-[0.2em]">
           {product.tag}
         </span>
       )}
-      <div className={`w-24 h-24 rounded-[2rem] bg-white/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 group-hover:bg-primary/10 ring-1 ring-white/10 group-hover:ring-primary/30`}>
+      <div className="w-24 h-24 rounded-full bg-[#383838]/20 flex items-center justify-center mb-12 group-hover:scale-110 transition-all duration-700 group-hover:bg-[#BF7D3A]/5 border border-white/5 group-hover:border-[#BF7D3A]/20 shadow-xl">
         {product.image ? (
-          <img src={product.image} alt={product.name} className="w-12 h-12 object-contain" />
+          <img src={product.image} alt={product.name} className="w-12 h-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
         ) : (
-          <Icon className={`text-4xl ${product.iconColor}`} />
+          <Icon className="text-4xl text-[#BF7D3A] opacity-60 group-hover:opacity-100 transition-opacity" />
         )}
       </div>
-      <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">{product.name}</h3>
-      <p className="text-sm text-gray-400 font-medium mb-8 line-clamp-2 h-12 leading-relaxed">{product.description}</p>
+      <h3 className="text-3xl font-medium text-[#F4E1D2] mb-4 tracking-tight font-serif italic group-hover:text-[#F7CA79] transition-colors">{product.name}</h3>
+      <p className="text-[#F4E1D2]/40 font-light mb-12 line-clamp-2 h-14 leading-relaxed tracking-wide text-base">{product.description}</p>
       
-      <div className="flex items-baseline gap-1 mb-10">
-        <span className="text-3xl md:text-4xl font-black text-white tracking-tighter">${product.price}</span>
-        <span className="text-gray-500 font-bold text-sm">/{product.period}</span>
+      <div className="flex items-baseline gap-2 mb-14">
+        <span className="text-6xl font-light text-[#F4E1D2] tracking-tighter text-glow-amber font-serif italic">${product.price}</span>
+        <span className="text-[#F4E1D2]/30 font-medium text-xs uppercase tracking-[0.3em]">/{product.period}</span>
       </div>
 
-      <div className="space-y-4 mb-10 w-full text-left">
+      <div className="space-y-6 mb-16 w-full text-left">
         {product.features.map((f, i) => (
-          <div key={i} className="flex items-center gap-3 text-sm text-gray-400 font-medium">
-            <div className="w-5 h-5 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 ring-1 ring-primary/20">
-              <FaCheck className="w-2.5 h-2.5 text-primary" />
+          <div key={i} className="flex items-center gap-5 text-[11px] text-[#F4E1D2]/40 font-semibold uppercase tracking-[0.2em]">
+            <div className="w-5 h-5 rounded-full bg-[#BF7D3A]/5 flex items-center justify-center shrink-0 border border-[#BF7D3A]/10 group-hover:bg-[#BF7D3A] group-hover:text-[#1A1614] transition-all">
+              <FaCheck className="w-2 h-2" />
             </div>
-            <span className="truncate">{f}</span>
+            <span className="group-hover:text-[#F4E1D2]/80 transition-colors">{f}</span>
           </div>
         ))}
       </div>
 
-      <button onClick={handleBuy} disabled={isInCart} className={`btn btn-block rounded-2xl h-14 md:h-16 transition-all duration-300 font-black border-none text-white text-base ${isInCart || added ? 'bg-accent/20 text-accent disabled:bg-accent/20 disabled:text-accent cursor-default' : 'bg-primary hover:bg-primary-focus shadow-lg shadow-primary/20 hover:scale-105 active:scale-95'}`}>
+      <button onClick={handleBuy} disabled={isInCart} className={`w-full h-20 transition-all duration-700 font-semibold text-[10px] uppercase tracking-[0.3em] rounded-xl flex items-center justify-center gap-4 ${isInCart || added ? 'bg-[#BF7D3A]/10 text-[#BF7D3A] border border-[#BF7D3A]/20 cursor-default' : 'btn-amber shadow-2xl'}`}>
         {isInCart || added ? (
-          <span className="flex items-center gap-2"><FaCheck /> Added</span>
-        ) : 'Get Access Now'}
+          <><FaCheck className="text-base" /> Synchronized</>
+        ) : 'Initialize'}
       </button>
     </div>
   );

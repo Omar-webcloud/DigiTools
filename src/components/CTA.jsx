@@ -1,27 +1,27 @@
 const CTA = () => (
-  <section className="py-32 relative">
+  <section className="py-40 relative">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="bg-gradient-to-br from-primary to-secondary rounded-[4rem] px-8 py-20 md:p-24 text-center text-white relative overflow-hidden group shadow-2xl shadow-primary/20">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 group-hover:bg-white/20 transition-all duration-1000" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+      <div className="bg-gradient-to-br from-[#1A1614] via-[#383838] to-[#1A1614] rounded-[3.5rem] px-10 py-32 text-center text-[#F4E1D2] relative overflow-hidden group shadow-3xl border border-white/5">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#BF7D3A]/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2 group-hover:bg-[#BF7D3A]/10 transition-all duration-1000" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-black/20 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
         
-        <h2 className="text-5xl md:text-8xl font-black mb-10 relative z-10 tracking-tighter leading-[0.9]">
-          Ignite Your <br />
-          Creative Spark
+        <h2 className="text-7xl md:text-[10rem] font-light mb-16 relative z-10 tracking-tight leading-[1] text-glow-amber font-serif italic">
+          Refine Your <br />
+          <span className="text-[#BF7D3A] font-sans not-italic">Vision</span>
         </h2>
-        <p className="text-white/80 text-lg md:text-2xl mb-14 max-w-2xl mx-auto relative z-10 font-medium leading-relaxed">
-          Join 50,000+ visionaries scaling their digital presence with DigiTools.
+        <p className="text-[#F4E1D2]/60 text-xl md:text-2xl mb-20 max-w-3xl mx-auto relative z-10 font-light leading-relaxed tracking-wide">
+          Synchronize with a global network of elite creators. Initialize your access to the gallery today.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-          <button className="btn bg-white text-primary border-none hover:bg-gray-100 rounded-2xl h-20 px-12 text-xl font-black shadow-2xl transition-all hover:scale-105">
-            Get Started Free
+        <div className="flex flex-col sm:flex-row justify-center gap-10 relative z-10">
+          <button className="btn-amber h-24 px-20 text-sm tracking-[0.3em] rounded-xl shadow-3xl">
+            Initialize Access
           </button>
-          <button className="btn btn-ghost border-white/20 border-2 text-white hover:bg-white/10 rounded-2xl h-20 px-12 text-xl font-black transition-all">
-            View Enterprise
+          <button className="h-24 px-20 border-2 border-white/10 text-[#F4E1D2]/80 hover:text-[#F4E1D2] hover:bg-white/5 rounded-xl text-sm font-semibold uppercase tracking-[0.3em] transition-all">
+            System Identity
           </button>
         </div>
-        <div className="mt-16 text-white/40 text-xs font-black uppercase tracking-[0.4em] relative z-10">
-          No credit card required &bull; Cancel anytime
+        <div className="mt-24 text-[#F4E1D2]/20 text-[10px] font-semibold uppercase tracking-[0.6em] relative z-10">
+          Neural Uplink Active &bull; No Latency
         </div>
       </div>
     </div>

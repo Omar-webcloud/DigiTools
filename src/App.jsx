@@ -41,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-mesh selection:bg-primary/30 selection:text-white">
+    <div className="min-h-screen bg-mesh-amber selection:bg-primary/30 selection:text-white">
       <ToastContainer position="bottom-right" autoClose={3000} theme="dark" />
       <Navbar cartCount={cart.length} onCartClick={handleCartClick} />
       <main>

@@ -8,23 +8,25 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
   return (
     <section id="tools" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Premium Digital Tools</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto font-medium text-lg leading-relaxed mb-12">
-            Elevate your workflow with our elite selection of AI-powered assets and software.
+        <div className="text-center mb-28">
+          <h2 className="text-6xl md:text-7xl font-light text-[#F4E1D2] mb-10 tracking-tight text-glow-amber italic font-serif">The <span className="text-[#BF7D3A] font-sans not-italic">Gallery</span></h2>
+          <p className="text-[#F4E1D2]/40 max-w-2xl mx-auto font-light text-xl leading-relaxed mb-20 tracking-wide">
+            Refined digital assets synthesized for the sophisticated creator.
           </p>
-          <div className="inline-flex justify-center gap-1 p-1 rounded-2xl glass border-white/5 shadow-xl">
+          <div className="inline-flex justify-center gap-12 p-1 relative">
             <button 
               onClick={() => setActiveTab('products')} 
-              className={`rounded-xl px-8 h-12 font-bold text-sm transition-all duration-300 ${activeTab === 'products' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`relative py-4 font-semibold text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'products' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
             >
-              Products
+              Collection
+              {activeTab === 'products' && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#BF7D3A] shadow-[0_0_10px_#BF7D3A]" />}
             </button>
             <button 
               onClick={() => setActiveTab('cart')} 
-              className={`rounded-xl px-8 h-12 font-bold text-sm transition-all duration-300 ${activeTab === 'cart' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`relative py-4 font-semibold text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'cart' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
             >
-              Cart ({cart.length})
+              Archives ({cart.length})
+              {activeTab === 'cart' && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#BF7D3A] shadow-[0_0_10px_#BF7D3A]" />}
             </button>
           </div>
         </div>

@@ -1,67 +1,83 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..700&display=swap');
 
 :root {
-  --primary: #8B5CF6;
-  --primary-focus: #7C3AED;
-  --secondary: #EC4899;
-  --accent: #10B981;
-  --neutral: #1F2937;
-  --base-100: #0F172A;
+  --primary: #BF7D3A;
+  --primary-focus: #804E27;
+  --secondary: #F7CA79;
+  --accent: #F4E1D2;
+  --neutral: #383838;
+  --base-100: #1A1614;
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: var(--base-100);
-  color: #F8FAFC;
+  color: #F4E1D2;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.02em;
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 20px rgba(191, 125, 58, 0.2);
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(56, 56, 56, 0.4);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(244, 225, 210, 0.05);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(56, 56, 56, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 225, 210, 0.08);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
+  background: rgba(56, 56, 56, 0.3);
+  border-color: rgba(191, 125, 58, 0.3);
+  transform: translateY(-5px);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #fff 0%, #8B5CF6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-amber {
+  @apply relative overflow-hidden transition-all duration-500 rounded-lg px-8 py-4 font-semibold tracking-wide uppercase text-xs;
+  background: #BF7D3A;
+  color: #1A1614;
 }
 
-.bg-mesh {
-  background-color: #0F172A;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+.btn-amber:hover {
+  background: #F7CA79;
+  box-shadow: 0 15px 30px -10px rgba(191, 125, 58, 0.4);
+  transform: translateY(-2px);
+}
+
+.text-gradient-amber {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#BF7D3A] via-[#F7CA79] to-[#BF7D3A];
+}
+
+.bg-mesh-amber {
+  background: 
+    radial-gradient(at 0% 0%, rgba(128, 78, 39, 0.2) 0, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(191, 125, 58, 0.1) 0, transparent 50%),
+    #1A1614;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-float-slow {
+  animation: float 10s ease-in-out infinite;
 }

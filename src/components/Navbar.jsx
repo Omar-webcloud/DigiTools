@@ -1,35 +1,36 @@
 import { FaCartShopping, FaUser } from 'react-icons/fa6';
 
 const Navbar = ({ cartCount, onCartClick }) => (
-  <header className="sticky top-0 z-50 px-4 pt-4">
-    <nav className="navbar glass rounded-2xl max-w-7xl mx-auto px-6 py-2 shadow-2xl shadow-black/20">
+  <header className="fixed top-0 left-0 w-full z-50 px-8 pt-8">
+    <nav className="navbar glass rounded-2xl max-w-7xl mx-auto px-10 py-4 border-white/5 shadow-2xl">
       <div className="navbar-start">
-        <a className="text-2xl font-black text-white cursor-pointer tracking-tighter flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/40">
-            <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
+        <a className="text-3xl font-medium text-[#F4E1D2] cursor-pointer tracking-tight flex items-center gap-4 group">
+          <div className="w-10 h-10 bg-[#BF7D3A] rounded-full flex items-center justify-center transition-transform duration-700 group-hover:rotate-[360deg]">
+             <div className="w-1.5 h-1.5 bg-[#1A1614] rounded-full" />
           </div>
-          DigiTools
+          <span className="font-serif italic group-hover:text-[#F7CA79] transition-colors">DigiTools</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-medium gap-2 text-gray-300">
-          <li><a className="hover:text-white hover:bg-white/10 rounded-xl transition-all">Products</a></li>
-          <li><a className="hover:text-white hover:bg-white/10 rounded-xl transition-all">Features</a></li>
-          <li><a className="hover:text-white hover:bg-white/10 rounded-xl transition-all">Pricing</a></li>
-          <li><a className="hover:text-white hover:bg-white/10 rounded-xl transition-all">Testimonials</a></li>
-          <li><a className="hover:text-white hover:bg-white/10 rounded-xl transition-all">FAQ</a></li>
+        <ul className="menu menu-horizontal px-1 font-medium gap-8 text-[#F4E1D2]/40 text-[11px] uppercase tracking-[0.3em]">
+          <li><a className="hover:text-[#F4E1D2] transition-all p-0 bg-transparent">Gallery</a></li>
+          <li><a className="hover:text-[#F4E1D2] transition-all p-0 bg-transparent">Journal</a></li>
+          <li><a className="hover:text-[#F4E1D2] transition-all p-0 bg-transparent">Archives</a></li>
+          <li><a className="hover:text-[#F4E1D2] transition-all p-0 bg-transparent">Access</a></li>
         </ul>
       </div>
-      <div className="navbar-end gap-2 flex items-center">
-        <button onClick={onCartClick} className="btn btn-ghost btn-circle text-gray-300 hover:bg-white/10 indicator relative">
-          {cartCount > 0 && <span className="indicator-item badge badge-primary badge-sm text-[10px] text-white shadow-lg border-none right-1 top-1">{cartCount}</span>}
-          <FaCartShopping className="text-lg" />
+      <div className="navbar-end gap-6 flex items-center">
+        <button onClick={onCartClick} className="relative text-[#F4E1D2]/60 hover:text-[#F7CA79] transition-colors">
+          <FaCartShopping className="text-xl" />
+          {cartCount > 0 && <span className="absolute -top-2 -right-2 w-4 h-4 bg-[#BF7D3A] text-[#1A1614] text-[9px] font-bold rounded-full flex items-center justify-center">{cartCount}</span>}
         </button>
-        <div className="h-6 w-[1px] bg-white/10 mx-1 hidden sm:block"></div>
-        <a className="btn btn-ghost font-semibold text-gray-300 hover:text-white hover:bg-white/10 rounded-xl flex items-center gap-2">
-          <FaUser className="text-gray-400" /> <span className="hidden sm:inline">Login</span>
+        <div className="h-4 w-[1px] bg-white/10 mx-2 hidden sm:block"></div>
+        <a className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#F4E1D2]/60 hover:text-[#F4E1D2] cursor-pointer transition-colors">
+          Identity
         </a>
-        <a className="btn bg-primary hover:bg-primary-focus border-none rounded-xl px-6 text-white shadow-lg shadow-primary/30 font-bold hidden sm:flex">Get Started</a>
+        <a className="btn-amber h-12 px-10 flex items-center justify-center text-[10px]">
+          Initialize
+        </a>
       </div>
     </nav>
   </header>

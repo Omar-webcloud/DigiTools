@@ -3,9 +3,9 @@ import { FaCheck } from 'react-icons/fa6';
 const Pricing = () => (
   <section className="py-32 relative">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="text-center mb-32">
-        <h2 className="text-6xl md:text-7xl font-light text-[#F4E1D2] mb-8 tracking-tight text-glow-amber italic font-serif">Operational <span className="text-[#BF7D3A] font-sans not-italic">Tiers</span></h2>
-        <p className="text-[#F4E1D2]/40 max-w-xl mx-auto font-light text-xl leading-relaxed tracking-wide">Select your synchronization protocol.</p>
+      <div className="text-center mb-20 md:mb-32">
+        <h2 className="text-4xl md:text-7xl font-light text-[#F4E1D2] mb-6 md:mb-8 tracking-tight text-glow-amber italic font-serif">Operational <span className="text-[#BF7D3A] font-sans not-italic">Tiers</span></h2>
+        <p className="text-[#F4E1D2]/40 max-w-xl mx-auto font-light text-lg md:text-xl leading-relaxed tracking-wide">Select your synchronization protocol.</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch max-w-6xl mx-auto">
         <div className="glass-card p-12 rounded-[2.5rem] flex flex-col border-white/5 shadow-2xl">

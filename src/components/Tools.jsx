@@ -6,24 +6,24 @@ const Tools = ({ cart, onAddToCart, onRemoveFromCart, onCheckout, activeTab, set
   const totalCost = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <section id="tools" className="py-32 relative">
+    <section id="tools" className="py-20 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-28">
-          <h2 className="text-6xl md:text-7xl font-light text-[#F4E1D2] mb-10 tracking-tight text-glow-amber italic font-serif">The <span className="text-[#BF7D3A] font-sans not-italic">Gallery</span></h2>
-          <p className="text-[#F4E1D2]/40 max-w-2xl mx-auto font-light text-xl leading-relaxed mb-20 tracking-wide">
+        <div className="text-center mb-16 md:mb-28">
+          <h2 className="text-4xl md:text-7xl font-light text-[#F4E1D2] mb-6 md:mb-10 tracking-tight text-glow-amber italic font-serif">The <span className="text-[#BF7D3A] font-sans not-italic">Gallery</span></h2>
+          <p className="text-[#F4E1D2]/40 max-w-2xl mx-auto font-light text-lg md:text-xl leading-relaxed mb-12 md:mb-20 tracking-wide">
             Refined digital assets synthesized for the sophisticated creator.
           </p>
-          <div className="inline-flex justify-center gap-12 p-1 relative">
+          <div className="inline-flex justify-center gap-6 md:gap-12 p-1 relative">
             <button 
               onClick={() => setActiveTab('products')} 
-              className={`relative py-4 font-semibold text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'products' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
+              className={`relative py-3 md:py-4 font-semibold text-[9px] md:text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'products' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
             >
               Collection
               {activeTab === 'products' && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#BF7D3A] shadow-[0_0_10px_#BF7D3A]" />}
             </button>
             <button 
               onClick={() => setActiveTab('cart')} 
-              className={`relative py-4 font-semibold text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'cart' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
+              className={`relative py-3 md:py-4 font-semibold text-[9px] md:text-[11px] uppercase tracking-[0.3em] transition-all duration-700 ${activeTab === 'cart' ? 'text-[#BF7D3A]' : 'text-[#F4E1D2]/20 hover:text-[#F4E1D2]'}`}
             >
               Archives ({cart.length})
               {activeTab === 'cart' && <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#BF7D3A] shadow-[0_0_10px_#BF7D3A]" />}

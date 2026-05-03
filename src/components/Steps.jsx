@@ -1,11 +1,11 @@
 import { FaUser, FaBox, FaRocket } from 'react-icons/fa6';
 
 const Steps = () => (
-  <section className="py-32 relative overflow-hidden">
+  <section className="py-20 md:py-32 relative overflow-hidden">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="text-center mb-28">
-        <h2 className="text-6xl md:text-7xl font-light text-[#F4E1D2] mb-8 tracking-tight text-glow-amber italic font-serif">The <span className="text-[#BF7D3A] font-sans not-italic">Process</span></h2>
-        <p className="text-[#F4E1D2]/40 max-w-xl mx-auto font-light text-xl leading-relaxed tracking-wide">
+      <div className="text-center mb-16 md:mb-28">
+        <h2 className="text-4xl md:text-7xl font-light text-[#F4E1D2] mb-6 md:mb-8 tracking-tight text-glow-amber italic font-serif">The <span className="text-[#BF7D3A] font-sans not-italic">Process</span></h2>
+        <p className="text-[#F4E1D2]/40 max-w-xl mx-auto font-light text-lg md:text-xl leading-relaxed tracking-wide">
           Three refined movements toward digital excellence.
         </p>
       </div>

@@ -1,17 +1,17 @@
 import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => (
-  <footer className="pt-48 pb-24 text-[#F4E1D2]/20 relative border-t border-white/5">
+  <footer className="pt-24 md:pt-48 pb-12 md:pb-24 text-[#F4E1D2]/20 relative border-t border-white/5">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-24 mb-40 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-24 mb-20 md:mb-40 relative z-10">
         <div className="lg:col-span-2">
-          <a className="text-4xl font-medium text-[#F4E1D2] mb-12 block tracking-tight flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#BF7D3A] rounded-full flex items-center justify-center">
-              <div className="w-2 h-2 bg-[#1A1614] rounded-full" />
+          <a className="text-3xl md:text-4xl font-medium text-[#F4E1D2] mb-8 md:mb-12 block tracking-tight flex items-center gap-4">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-[#BF7D3A] rounded-full flex items-center justify-center">
+              <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#1A1614] rounded-full" />
             </div>
             <span className="font-serif italic">DigiTools</span>
           </a>
-          <p className="text-[#F4E1D2]/40 leading-relaxed font-light text-xl max-w-sm mb-16 tracking-wide">
+          <p className="text-[#F4E1D2]/40 leading-relaxed font-light text-lg md:text-xl max-w-sm mb-10 md:mb-16 tracking-wide">
             Synthesizing the future of digital workflows through refined creative assets.
           </p>
           <div className="flex items-center gap-8">

@@ -4,14 +4,14 @@ const Hero = () => (
   <section className="relative pt-48 pb-32 overflow-hidden">
     <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-24 relative z-10">
       <div className="lg:w-3/5 text-left">
-        <div className="inline-flex items-center gap-3 px-6 py-2 rounded-xl glass text-[#F7CA79] text-[11px] font-semibold mb-12 tracking-[0.3em] uppercase border-white/5 shadow-xl">
+        <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 rounded-xl glass text-[#F7CA79] text-[9px] md:text-[11px] font-semibold mb-8 md:mb-12 tracking-[0.2em] md:tracking-[0.3em] uppercase border-white/5 shadow-xl">
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#BF7D3A] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#BF7D3A]"></span>
           </span>
           The Future of Digital Creation
         </div>
-        <h1 className="text-7xl md:text-8xl lg:text-[9rem] font-light leading-[1] mb-12 tracking-tight text-[#F4E1D2] text-glow-amber">
+        <h1 className="text-5xl md:text-8xl lg:text-[9rem] font-light leading-[1.1] md:leading-[1] mb-10 md:mb-12 tracking-tight text-[#F4E1D2] text-glow-amber">
           Refine Your <br />
           <span className="text-gradient-amber italic serif font-medium">Digital Art</span>
         </h1>
